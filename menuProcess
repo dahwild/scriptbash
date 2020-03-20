@@ -1,0 +1,72 @@
+# ! /bin/bash
+# Programa que permite crear un menú con las siguientes opciones: 1)Procesos actuales, 2)Memoria disponible, 3)Espacio en disco, 4)Información de red, 5)Variables de entorno configuradas, 6)Información programa, 7)Backup información.
+# Autor: Wilder David
+
+opcion=0
+
+#Así se declara un while infinito
+while :
+do
+    #Limpiar la pantalla
+    clear
+    #Desplegar el menú de opcione
+    echo "_________________________________________"
+    echo "             PROCESS - PROGRAM           "
+    echo "_________________________________________"
+    echo "              MENÚ PRINCIPAL             "
+    echo "_________________________________________"
+    echo "1. Procesos actuales"
+    echo "2. Memoria Disponible"
+    echo "3. Espacio en Disco"
+    echo "4. Información de Red"
+    echo "5. Variables de entorno configuradas"
+    echo "6. Información programa"
+    echo "7. Backup Información"
+    echo "8. Salir"
+
+    # Leer los datos de usuario - capturar información
+    read -n1 -p "Ingrese una opción [1-8]: " opcion
+
+    # Validar la opcion ingresada
+    case $opcion in
+        1)
+            echo -e "\nProcesos actuales del usuario $USER: "
+            ps -a
+            sleep 4
+            ;;
+        2) 
+            echo -e "\nMemoria disponible"
+            free -m
+            sleep 4
+            ;;
+        3)  
+            echo -e "\nEspacio de Disco"
+            df -h
+            sleep 4
+            ;;
+        4)  
+            echo -e "\nInformación de red"
+            ifconfig
+            sleep 4
+            ;;
+        5)  
+            echo -e "\nVariables de entorno configuradas"
+            env
+            sleep 4
+            ;;
+        6)  
+            echo -e "\nInformación de programa....."
+            sleep 3
+            ;;
+        7)  
+            echo -e "\nBackup Información....."
+            sleep 3
+            ;;
+        8)  echo -e "\nSALIR DEL PROGRAMA"
+            exit 0
+            ;;
+    esac
+done
+
+
+
